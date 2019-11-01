@@ -1,22 +1,65 @@
-.App {
-  text-align: center;
+.heroListContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	max-width: 80%;
+	margin: auto;
+	margin-top: 100px;
+	border: 1px solid black;
+	/* max-width: 1000px; */
+	padding: 20px;
+	border-radius: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
+.heroListContainer > .heroCard {
+	border: 1px solid black;
+	/* width: 23%; */
+	padding: 10px;
+	cursor: pointer;
+	flex-basis: 23%;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+.heroListContainer > .heroCard:hover {
+	box-shadow: 0 0 20px -5px #979797;
+	transform: scale(1.05);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.heroListContainer > .heroCard > .heroImage > img {
+	width: 100%;
+	border-radius: 10px;
 }
 
-.App-link {
-  color: #09d3ac;
+.heroListContainer > .heroCard > .heroName {
+	text-align: center;
+	margin: 30px 0;
+	font-size: 1.4rem;
+}
+
+@media (max-width: 750px) {
+	.heroListContainer {
+		max-width: 80%;
+	}
+	.heroListContainer > .heroCard {
+		flex-basis: 48%;
+		margin: 10px 0;
+	}
+	.heroListContainer > .heroCard > .heroName {
+		font-size: 1.2rem;
+		margin: 15px 0;
+	}
+}
+@media (max-width: 360px) {
+	.heroListContainer {
+		flex-direction: column;
+		margin: 40px;
+	}
+	.heroListContainer > .heroCard {
+		/* width: 100%; */
+		flex-basis: 98%;
+	}
+	.heroListContainer > .heroCard > .heroName {
+		font-size: 1rem;
+		margin: 10px 0;
+	}
 }
