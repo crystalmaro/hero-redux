@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import './index.css';
+// import './index.css';
 import App from './js/components/App';
 import * as serviceWorker from './serviceWorker';
-// import index from './js/index';
+
 
 import store from './js/store/index';
 // import { addArticle } from './js/actions/index';
@@ -17,8 +18,11 @@ store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
-	</Provider>,
+    {/* <Router>
+      <Route path="/" component={App} />
+    </Router> */}
+    <App />
+  </Provider>,
 	document.getElementById('root')
 );
 

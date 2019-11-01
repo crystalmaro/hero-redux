@@ -1,24 +1,22 @@
+@import url('index.css');
+
 .heroListContainer {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-between;
 	max-width: 80%;
 	margin: auto;
 	margin-top: 100px;
-	border: 1px solid black;
-	/* max-width: 1000px; */
-	padding: 20px;
-	border-radius: 10px;
 }
 
 .heroListContainer > .heroCard {
-	border: 1px solid black;
-	/* width: 23%; */
+	border: 1px solid grey;
 	padding: 10px;
 	cursor: pointer;
 	flex-basis: 23%;
 	box-sizing: border-box;
-	border-radius: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px -5px #979797;
 }
 .heroListContainer > .heroCard:hover {
 	box-shadow: 0 0 20px -5px #979797;
@@ -55,11 +53,11 @@
 		margin: 40px;
 	}
 	.heroListContainer > .heroCard {
-		/* width: 100%; */
-		flex-basis: 98%;
+		width: 100%;
+		flex-basis: 100%;
 	}
 	.heroListContainer > .heroCard > .heroName {
 		font-size: 1rem;
-		margin: 10px 0;
+		margin: 20px 0;
 	}
 }

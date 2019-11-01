@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getHeroes } from '../actions/index';
-import '../../App.css';
+import '../../css/list.css'
 
 export class List extends Component {
 	componentDidMount() {
@@ -11,7 +11,7 @@ export class List extends Component {
 		return (
       <div className='heroListContainer'>
       {this.props.remoteHeroes.map((el) => 
-      <div className="heroCard" key={el.id}>
+      <div className="heroCard" key={el.id} id={el.id}>
 				<div className="heroImage">
 					<img
 						src={el.image}
