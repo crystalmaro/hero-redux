@@ -40,7 +40,7 @@ export const rootReducer = (state = initialState, action) => {
     case GET_PROFILE_REQUEST:
       return {...state,
         fetchingProfile: true,
-        currentHeroID: action.payload,
+        currentHeroID: action.payload
       }
       break;
     case GET_PROFILE:
@@ -54,7 +54,7 @@ export const rootReducer = (state = initialState, action) => {
         fetchingProfile: false,
         remoteProfile: action.payload,
         profilePoints: Object.values(action.payload).reduce((a, b) => a + b),
-      }
+        }
       break;
     default:
       return state;

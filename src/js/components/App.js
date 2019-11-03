@@ -5,13 +5,14 @@ import List from './List';
 import Profile from './Profile';
 
 const App = () => (
-	<Router>
-  {/* <Route exact path='/' render={() => <Redirect to='/heroes' />} />
-  <Route path='/heroes' component={List} />
-  <Route path='/heroes/:heroId' component={Profile} /> */}
-
+  <>
 		<List />
 		<Profile />
-  </Router>
+  </>
+  // <Router>
+  //   <Route exact path='/' render={() => <Redirect to='/heroes' />} />
+  //   <Route path='/heroes' component={List} />
+  //   <Route path='/heroes/:heroId' component={Profile} />
+  // </Router>
 );
 export default App;
