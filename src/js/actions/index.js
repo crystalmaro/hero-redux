@@ -40,7 +40,7 @@ export const getHeroes = () => {
 
 export const getProfile = (e) => {
   return function(dispatch) {
-  dispatch({type: GET_PROFILE_REQUEST})
+  dispatch({type: GET_PROFILE_REQUEST, payload: e.target.id})
   axios.get(`http://hahow-recruit.herokuapp.com/heroes/${e.target.id}/profile/`)
     .then((response)=>{
       dispatch({type: GET_PROFILE, payload: response.data})
