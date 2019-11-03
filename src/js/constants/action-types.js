@@ -1,2 +1,5 @@
 // export const ADD_ARTICLE = 'ADD_ARTICLE';
+export const GET_HEROES_REQUEST = 'GET_HEROES_REQUEST';
 export const GET_HEROES = 'GET_HEROES';
+export const GET_PROFILE_REQUEST = 'GET_PROFILE_REQUEST';
+export const GET_PROFILE = 'GET_PROFILE';
