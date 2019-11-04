@@ -24,7 +24,6 @@ export class App extends Component {
 				<Route exact path="/" render={() => <Redirect to="/heroes" />} />
 				<Route path="/heroes" component={List} />
 				<Route path={`/heroes/${this.props.currentHeroID}`} component={Profile} />
-				{/* <Route path="/test" component={Profile} /> */}
 			</Router>
 		);
 	}
