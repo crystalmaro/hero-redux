@@ -22,7 +22,6 @@ export class Profile extends Component {
 				<div className="powerNumber">{value}</div>
 				<button
 					type="button"
-					// className="minusButton"
 					className={value !== 0 ? 'minusButton' : 'disableButton'}
 					onClick={value !== 0 ? () => this.props.decPower(name) : null}
 				>
@@ -33,7 +32,6 @@ export class Profile extends Component {
 	};
 
 	render() {
-		console.log('[component] profile');
 		return (
 			<div
 				className="heroProfileContainer"

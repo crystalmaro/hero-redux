@@ -12,15 +12,7 @@ import {
 } from '../constants/action-types';
 import axios from 'axios';
 
-// export const setID = (e) => {
-// 	return {
-// 		type: SET_ID,
-// 		payload: e.target.id,
-// 	};
-// };
-
 export const setID = (e) => {
-	console.log(e);
 	return function(dispatch) {
 		dispatch({
 			type: SET_ID,
@@ -36,36 +28,6 @@ export const setID = (e) => {
 	};
 };
 
-export const incPower = (name) => {
-	console.log(name);
-	return {
-		type: INC_POWER,
-		payload: name,
-	};
-};
-export const decPower = (name) => {
-	console.log(name);
-	return {
-		type: DEC_POWER,
-		payload: name,
-	};
-};
-
-// export function addArticle(payload) {
-// 	return { type: ADD_ARTICLE, payload };
-// }
-
-// export const getHeroes = () => {
-// 	return function(dispatch) {
-//     return fetch('https://hahow-recruit.herokuapp.com/heroes/')
-//     .then((response) => response.json())
-//     .then((json) => {
-//       dispatch({ type: GET_HEROES, payload: json });
-//       console.log('[action] getHeroes')
-// 		});
-// 	};
-// }
-
 export const getHeroes = () => {
 	return function(dispatch) {
 		dispatch({ type: GET_HEROES_REQUEST });
@@ -75,16 +37,19 @@ export const getHeroes = () => {
 	};
 };
 
-// export const getProfile = (e) => {
-//   return function(dispatch) {
-//     return fetch(`http://hahow-recruit.herokuapp.com/heroes/${e.target.id}/profile/`)
-//     .then((response) => response.json())
-//     .then((json) => {
-//       dispatch({ type: GET_PROFILE, payload: json });
-//       console.log('[action] getProfile')
-//     });
-//   };
-// }
+export const incPower = (name) => {
+	return {
+		type: INC_POWER,
+		payload: name,
+	};
+};
+
+export const decPower = (name) => {
+	return {
+		type: DEC_POWER,
+		payload: name,
+	};
+};
 
 export const getProfile = (e) => {
 	console.log(e);
@@ -111,5 +76,3 @@ export const patchPower = (id, body) => {
 		});
 	};
 };
-
-// http://hahow-recruit.herokuapp.com/heroes/1/profile

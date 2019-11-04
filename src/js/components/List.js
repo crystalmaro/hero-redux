@@ -12,10 +12,7 @@ export class List extends Component {
 		// with matching action type, it dispatch the action to the reducer
 	}
 	render() {
-		console.log('[component] list');
 		return (
-			// <Router>
-			// 	<Route path={`/heroes/${this.props.currentHeroID}`} component={Profile}>
 			<div className="heroListContainer" onClick={this.props.setID}>
 				{this.props.remoteHeroes.map((x) => (
 					<Link
@@ -24,7 +21,6 @@ export class List extends Component {
 						key={x.id}
 						id={x.id}
 						className="heroCard"
-						// onClick={this.props.getProfile}
 						style={this.props.currentHeroID == x.id ? { boxShadow: '0 0 20px -5px #fa8b00' } : null}
 					>
 						<div className="heroImage">
@@ -36,8 +32,6 @@ export class List extends Component {
 					</Link>
 				))}
 			</div>
-			// 	</Route>
-			// </Router>
 		);
 	}
 }

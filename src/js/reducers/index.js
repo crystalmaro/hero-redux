@@ -16,12 +16,6 @@ const initialState = {
 	remoteHeroes: [],
 	fetchingProfile: false,
 	remoteProfile: {},
-	// {
-	// 	str: 0,
-	// 	int: 0,
-	// 	agi: 0,
-	// 	luk: 0,
-	// },
 	currentHeroID: null,
 	totalPoints: 0,
 	availablePoints: 0,
@@ -36,12 +30,6 @@ export const rootReducer = (state = initialState, action) => {
 				fetchingHeroes: true,
 			};
 		case GET_HEROES:
-			// return (
-			//   Object.assign({}, state, {
-			//     remoteHeroes: state.remoteHeroes.concat(action.payload),
-			//   })
-			// )
-			// return {...state, remoteHeroes: action.payload}
 			return {
 				...state,
 				fetchingHeroes: false,
@@ -51,7 +39,6 @@ export const rootReducer = (state = initialState, action) => {
 			return {
 				...state,
 				fetchingProfile: true,
-				// currentHeroID: action.id,
 			};
 		case GET_PROFILE:
 			return {
@@ -78,11 +65,8 @@ export const rootReducer = (state = initialState, action) => {
 				...state,
 				availablePoints: state.availablePoints - 1,
 				remoteProfile: state.remoteProfile,
-				// teresa: action.payload,
-				// remoteProfile: {...remoteProfile, state.remoteProfile[action.payload] + 1 }
 			};
 		case DEC_POWER:
-			// console.log('OOOOOO' + state);
 			state.remoteProfile[action.payload] = state.remoteProfile[action.payload] - 1;
 			return {
 				...state,
@@ -98,9 +82,5 @@ export const rootReducer = (state = initialState, action) => {
 			return state;
 	}
 };
-
-// const rootReducer = combineReducers({
-// 	getHeroesReducer
-// });
 
 export default rootReducer;

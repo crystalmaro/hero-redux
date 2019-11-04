@@ -18,10 +18,8 @@ export class App extends Component {
 
 function mapStateToProps(state) {
 	return {
-		// remoteHeroes: state.remoteHeroes,
 		currentHeroID: state.currentHeroID,
 	};
 }
-// export default App;
 
 export default connect(mapStateToProps)(App);
