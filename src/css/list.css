@@ -1,5 +1,9 @@
 @import url('index.css');
 
+a {
+	text-decoration: none;
+	color: black;
+}
 .heroListContainer {
 	display: flex;
 	flex-wrap: wrap;
@@ -14,8 +18,8 @@
 	cursor: pointer;
 	flex-basis: 23%;
 	box-sizing: border-box;
-  border-radius: 10px;
-  box-shadow: 0 0 20px -5px #979797;
+	border-radius: 10px;
+	box-shadow: 0 0 20px -5px #979797;
 }
 .heroListContainer > .heroCard:hover {
 	box-shadow: 0 0 20px -5px #979797;

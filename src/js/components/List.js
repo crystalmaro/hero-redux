@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getHeroes, getProfile } from '../actions/index';
+import { Link } from 'react-router-dom';
+import { getHeroes, getProfile, setID } from '../actions/index';
+// import Profile from './Profile';
 import '../../css/list.css';
 
 export class List extends Component {
@@ -12,14 +14,18 @@ export class List extends Component {
 	render() {
 		console.log('[component] list');
 		return (
-			<div className="heroListContainer">
+			// <Router>
+			// 	<Route path={`/heroes/${this.props.currentHeroID}`} component={Profile}>
+			<div className="heroListContainer" onClick={this.props.setID}>
 				{this.props.remoteHeroes.map((x) => (
-					<div
+					<Link
+						to={`/heroes/${x.id}`}
+						// to="/test"
 						key={x.id}
 						id={x.id}
 						className="heroCard"
-						onClick={this.props.getProfile}
-						style={this.props.currentHeroID === x.id ? { boxShadow: '0 0 20px -5px #fa8b00' } : null}
+						// onClick={this.props.getProfile}
+						style={this.props.currentHeroID == x.id ? { boxShadow: '0 0 20px -5px #fa8b00' } : null}
 					>
 						<div className="heroImage">
 							<img src={x.image} alt="profile" id={x.id} />
@@ -27,9 +33,11 @@ export class List extends Component {
 						<div className="heroName" id={x.id}>
 							{x.name}
 						</div>
-					</div>
+					</Link>
 				))}
 			</div>
+			// 	</Route>
+			// </Router>
 		);
 	}
 }
@@ -41,4 +49,4 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(mapStateToProps, { getHeroes, getProfile })(List);
+export default connect(mapStateToProps, { getHeroes, getProfile, setID })(List);

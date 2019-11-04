@@ -6,3 +6,4 @@ export const PATCH_POWER_REQUEST = 'PATCH_POWER_REQUEST';
 export const PATCH_POWER_COMPLETE = 'PATCH_POWER_COMPLETE';
 export const INC_POWER = 'INC_POWER';
 export const DEC_POWER = 'DEC_POWER';
+export const SET_ID = 'SET_ID';

@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { patchPower, incPower, decPower } from '../actions/index';
+import { getProfile } from '../actions/index';
 import '../../css/profile.css';
 
 export class Profile extends Component {
+	componentDidMount() {
+		this.props.getProfile(this.props.currentHeroID);
+	}
 	renderProfile = () => {
 		return Object.entries(this.props.remoteProfile).map(([ name, value ]) => (
 			<div key={name + value} className="powerList">
 				<div className="powerTitle">{name.toUpperCase()}</div>
 				<button
 					type="button"
-					className={this.props.availablePoints === 0 ? 'disableButton' : 'addButton'}
-					onClick={this.props.incPower}
+					className={this.props.availablePoints !== 0 ? 'addButton' : 'disableButton'}
+					onClick={this.props.availablePoints !== 0 ? () => this.props.incPower(name) : null}
 				>
 					+
 				</button>
 				<div className="powerNumber">{value}</div>
-				<button type="button" className="minusButton" onClick={this.props.decPower}>
+				<button
+					type="button"
+					// className="minusButton"
+					className={value !== 0 ? 'minusButton' : 'disableButton'}
+					onClick={value !== 0 ? () => this.props.decPower(name) : null}
+				>
 					-
 				</button>
 			</div>
@@ -32,6 +41,7 @@ export class Profile extends Component {
 			>
 				<div className="left">{this.renderProfile()}</div>
 				<div className="right">
+					{/* <div className="spinningCircle">.</div> */}
 					<div>剩餘點數：{this.props.availablePoints}</div>
 					<button
 						type="button"
@@ -60,5 +70,7 @@ function mapStateToProps(state) {
 		currentHeroID: state.currentHeroID,
 	};
 }
-
-export default connect(mapStateToProps, { patchPower, incPower, decPower })(Profile);
+// function mapDispatchToProps(dispatch){
+//   patchPower: patchPower
+// }
+export default connect(mapStateToProps, { getProfile, patchPower, incPower, decPower })(Profile);

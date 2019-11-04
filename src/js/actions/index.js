@@ -8,17 +8,46 @@ import {
 	PATCH_POWER_COMPLETE,
 	INC_POWER,
 	DEC_POWER,
+	SET_ID,
 } from '../constants/action-types';
 import axios from 'axios';
 
-export const incPower = () => {
-	return {
-		type: INC_POWER,
+// export const setID = (e) => {
+// 	return {
+// 		type: SET_ID,
+// 		payload: e.target.id,
+// 	};
+// };
+
+export const setID = (e) => {
+	console.log(e);
+	return function(dispatch) {
+		dispatch({
+			type: SET_ID,
+			payload: e.target.id,
+		});
+		dispatch({
+			type: GET_PROFILE_REQUEST,
+			// id: e,
+		});
+		axios.get(`http://hahow-recruit.herokuapp.com/heroes/${e.target.id}/profile/`).then((response) => {
+			dispatch({ type: GET_PROFILE, payload: response.data });
+		});
 	};
 };
-export const decPower = () => {
+
+export const incPower = (name) => {
+	console.log(name);
+	return {
+		type: INC_POWER,
+		payload: name,
+	};
+};
+export const decPower = (name) => {
+	console.log(name);
 	return {
 		type: DEC_POWER,
+		payload: name,
 	};
 };
 
@@ -58,9 +87,17 @@ export const getHeroes = () => {
 // }
 
 export const getProfile = (e) => {
+	console.log(e);
 	return function(dispatch) {
-		dispatch({ type: GET_PROFILE_REQUEST, id: e.target.id });
-		axios.get(`http://hahow-recruit.herokuapp.com/heroes/${e.target.id}/profile/`).then((response) => {
+		dispatch({
+			type: SET_ID,
+			payload: e,
+		});
+		dispatch({
+			type: GET_PROFILE_REQUEST,
+			// id: e,
+		});
+		axios.get(`http://hahow-recruit.herokuapp.com/heroes/${e}/profile/`).then((response) => {
 			dispatch({ type: GET_PROFILE, payload: response.data });
 		});
 	};
