@@ -2,15 +2,16 @@
 	"name": "redux-practice",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "http://crystalmaro.github.io/hero-redux/public",
+	"homepage": "http://crystalmaro.github.io/hero-redux",
 	"dependencies": {
 		"react": "^16.11.0",
 		"react-dom": "^16.11.0",
 		"react-router-dom": "^5.1.2",
-		"react-router-redux": "^4.0.8",
 		"react-scripts": "3.2.0"
 	},
 	"scripts": {
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
@@ -20,11 +21,20 @@
 		"extends": "react-app"
 	},
 	"browserslist": {
-		"production": [ ">0.2%", "not dead", "not op_mini all" ],
-		"development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
 	},
 	"devDependencies": {
 		"axios": "^0.19.0",
+		"gh-pages": "^2.1.1",
 		"react-redux": "^7.1.1",
 		"redux": "^4.0.4",
 		"redux-logger": "^3.0.6",
