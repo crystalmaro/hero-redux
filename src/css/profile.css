@@ -25,10 +25,11 @@
 	text-align: center;
 }
 .heroProfileContainer > .left > .powerList > .powerNumber {
-  width: 50px;
-  text-align: center;
+	width: 50px;
+	text-align: center;
 }
-.heroProfileContainer > .left > .powerList > button {
+.heroProfileContainer > .left > .powerList > .addButton,
+.heroProfileContainer > .left > .powerList > .minusButton {
 	width: 50px;
 	height: 50px;
 	font-size: 1.5rem;
@@ -36,9 +37,17 @@
 	border: 1px solid grey;
 	cursor: pointer;
 }
+.heroProfileContainer > .left > .powerList > .disableButton {
+	width: 50px;
+	height: 50px;
+	font-size: 1.5rem;
+	border-radius: 10px;
+	border: 1px solid grey;
+	background: lightgrey;
+	cursor: not-allowed;
+}
 .heroProfileContainer > .left > .powerList > button:hover {
-	box-shadow: 0px 0px 10px -5px #979797;
-	transform: scale(1.01);
+	box-shadow: 0 0 10px -5px #979797;
 }
 
 .heroProfileContainer > .right {
@@ -55,7 +64,7 @@
 	font-size: inherit;
 	margin-bottom: 20px;
 }
-.heroProfileContainer > .right > button {
+.heroProfileContainer > .right > .powerButton {
 	width: 150px;
 	height: 50px;
 	font-size: 1.5rem;
@@ -63,9 +72,18 @@
 	border: 1px solid grey;
 	cursor: pointer;
 }
+.heroProfileContainer > .right > .patchDisabled {
+	width: 150px;
+	height: 50px;
+	font-size: 1.5rem;
+	border-radius: 10px;
+	border: 1px solid grey;
+	cursor: not-allowed;
+	background: lightgrey;
+}
 
-.heroProfileContainer > .right > button:hover {
-	box-shadow: 0px 0px 10px -5px #979797;
+.heroProfileContainer > .right > .powerButton:hover {
+	box-shadow: 0 0 10px -5px #979797;
 	transform: scale(1.01);
 }
 
@@ -80,7 +98,7 @@
 		flex-basis: 98%;
 		box-sizing: border-box;
 	}
-	.heroProfileContainer > .right > button,
+	.heroProfileContainer > .right > .powerButton,
 	.heroProfileContainer > .right > div {
 		width: 100%;
 		text-align: center;
@@ -97,7 +115,8 @@
 		margin: 10px 0;
 		justify-content: space-between;
 	}
-	.heroProfileContainer > .left > .powerList > button {
+	.heroProfileContainer > .left > .powerList > .addButton,
+	.heroProfileContainer > .left > .powerList > .minusButton {
 		width: 30px;
 		height: 30px;
 		font-size: inherit;
@@ -108,7 +127,7 @@
 	.heroProfileContainer > .right > div {
 		margin-bottom: 10px;
 	}
-	.heroProfileContainer > .right > button {
+	.heroProfileContainer > .right > .powerButton {
 		font-size: inherit;
 		height: 30px;
 	}
