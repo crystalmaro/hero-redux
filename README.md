@@ -99,18 +99,20 @@ React.createElement('a', {href: 'https://hahow.in/'}, 'Hello Henry and Freddie')
 - 當 action 觸發 `store.dispatch()` 進入 reducer 去修改 store 裡面的 state 時候，因為 React components 有 subscribe 到 store，所以當傳進該 component 的 state/props 被更新時，該 components 會收到通知，然後接收新個 state/props 再改變自己的 UI
 - my understanding is that you **dispatch** a function, the function returns an **action** (plain object including action type and payload), and the action type is matched with the action.type defined within **reducer**, in order for the reducer to modify the desired state inside the **store**
 <img src="https://i.imgur.com/3aIxHAh.png" width="400x" />
-#### --- Axios
+
+#### --- Axios ---
 - 用來處理 request API 的函式庫（eg. HTML methods `GET` `PATCH` ）
-#### --- Redux Thunk
+#### --- Redux Thunk ---
 - 因為 Redux actions 本身都是同步的，每次觸發 action 時，state 都會馬上被更新，所以透過 Redux-Thunk 這個 middleware 來協助 Redux 處理 action 函數裡 request 非同步的問題
 - 原本 action creator 都是回傳一個action object，透過 redux-thunk，action creator 可以傳回一個 function，而這個 function 就是 thunk
 - (eg. 抓 Hero List and Profile 的 HTML request)
-#### --- Redux Logger
+#### --- Redux Logger ---
 - 透過 redux logger 在開發過程中協助測試觸發的 actions，可以看 `prev state` 跟 `next state`
 - 當 applyMiddleware 傳入多個 middlewares 時，logger 必須放在最後一個，這表示在 dispatch 後會先做 log，而不會受到其他 middleware 影響
 ```javascript=
 const store = createStore(rootReducer, (applyMiddleware(thunk,logger));
 ```
+
 ### 程式碼中寫註解的原則
 因為這是算是個人開發的專案，我也把每次的個人專案當作練習的機會，所以在程式碼中寫註解的原則：
 1.  這次比較特別的是，是我第一次用 Redux 來管理 React 的狀態，所以會用一寫註解，來提醒自己 code 的原理，也幫助我更深入了解整個 Redux 的 flow
@@ -169,8 +171,7 @@ border: 1px solid blue;  /*這裡的 border 只是用來 debug 的*/
 
 ## 加分
 - [x] 程式的可讀性與可維護性
-- [ ] 使用 CSS framework
-    *這次把精力全神貫注在 Redux 上面，但是 [styled-components](https://www.styled-components.com/) 是我下一個想要 pick up 的技術*
+- [ ] 使用 CSS framework（*這次把精力全神貫注在 Redux 上面，但是 [styled-components](https://www.styled-components.com/) 是我下一個想要 pick up 的技術*）
 - [x] 任何你覺得可以讓網頁變得更 fancy 或是很酷的事情
 
 | | 
