@@ -1,5 +1,5 @@
 # hahow-hero
-
+[Instruction]https://github.com/hahow/hahow-recruit/blob/master/frontend.md)
 [Hero Demo Page](https://crystalwang-hero.netlify.com)
 
 ## 目錄
@@ -149,6 +149,9 @@ media query
 #### --- Deployment
 - 因為 repo 都 push 到 GitHub 上，就想說直接用它們提供的 GitHub Page 來呈現 Demo，但是 `npm build` push 到 gh-pages 之後，[畫面都是白色的](https://crystalmaro.github.io/hero-redux/public/index.html)，上網看了 [將create-react-app佈署到GitHub Pages](https://medium.com/@aaa24295234/%E5%B0%87create-react-app%E4%BD%88%E7%BD%B2%E5%88%B0github-pages-1a7ba468861a) 後，重新測試，[畫面還是白色的](https://crystalmaro.github.io/hero-redux/public/index.html) 
 - 後來因為覺得自己在 deploy 上花了兩個小時太久了，就利用 **Netlify** 來部署 demo page 
+- 部署到 Netlify 上後，一開始還抓不到 hero profile，打開 developer tool console 看了之後發現 api url 一定要 https 不能 http。回去看[文件](https://github.com/hahow/hahow-recruit/blob/master/frontend.md)，發現在 [我們所提供的資料及 API](https://github.com/hahow/hahow-recruit/blob/master/frontend.md#%E6%88%91%E5%80%91%E6%89%80%E6%8F%90%E4%BE%9B%E7%9A%84%E8%B3%87%E6%96%99%E5%8F%8A-API) 那邊只有`Patch Hero's Profile [PATCH]` 是 https，其他的都是 http。但往上看 [頁面需求](https://github.com/hahow/hahow-recruit/blob/master/frontend.md#%E9%A0%81%E9%9D%A2%E9%9C%80%E6%B1%82) 卻又都是 https。（**請問這是陷阱還是打錯字？**）
+
+
 - 其實當我有時間的時候，我真的要來研究 GitHub Page 部署怎麼回事，我在想有可能是我寫程式的方法，或是 build 跟 deploy 的方法有問題，但目前先到這裡。
 #### --- CSS Flexbox 
 - 因為 hero 能力值 object 裡面的 key 是英文，然後 value 的數字有個位數也有單位數，造成大家的寬度不一樣（INT vs. LUK）（10 vs. 5），所以不管用 Flexbox 的 `justify-content` : `space-around`, `space-evenly`, `space-between`, 都沒有辦法讓東西完美地垂直對齊
