@@ -1,5 +1,6 @@
 # hahow-hero
-[Instruction]https://github.com/hahow/hahow-recruit/blob/master/frontend.md)
+[Project Instruction](https://github.com/hahow/hahow-recruit/blob/master/frontend.md)
+
 [Hero Demo Page](https://crystalwang-hero.netlify.com)
 
 ## 目錄
