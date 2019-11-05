@@ -2,7 +2,7 @@
 	"name": "redux-practice",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "http://crystalmaro.github.io/hero-redux",
+
 	"dependencies": {
 		"react": "^16.11.0",
 		"react-dom": "^16.11.0",

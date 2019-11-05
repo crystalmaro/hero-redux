@@ -1,19 +1,15 @@
+@import url('index.css');
+
 .heroProfileContainer {
 	display: flex;
 	max-width: 80%;
 	margin: auto;
 	margin-top: 30px;
-	/* border: 1px solid black; */
-	/* padding: 20px; */
-	/* box-shadow: 0px 0px 20px -10px #979797; */
-	/* border-radius: 10px; */
 	font-size: 1.4rem;
 }
-
 .heroProfileContainer > .left {
 	flex-basis: 50%;
 }
-
 .heroProfileContainer > .left > .powerList {
 	display: flex;
 	align-items: center;
@@ -51,6 +47,35 @@
 	background: lightgrey;
 	cursor: not-allowed;
 }
+.heroProfileContainer {
+	-webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes scale-in-center {
+	0% {
+		-webkit-transform: scale(0);
+		transform: scale(0);
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+@keyframes scale-in-center {
+	0% {
+		-webkit-transform: scale(0);
+		transform: scale(0);
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
 .heroProfileContainer > .right {
 	flex-basis: 50%;
 	justify-content: flex-end;
@@ -64,7 +89,7 @@
 	font-size: inherit;
 	margin-bottom: 20px;
 }
-.heroProfileContainer > .right > .powerButton {
+.heroProfileContainer > .right > .patchButton {
 	width: 150px;
 	height: 50px;
 	font-size: 1.5rem;
@@ -72,7 +97,7 @@
 	border: 1px solid grey;
 	cursor: pointer;
 }
-.heroProfileContainer > .right > .patchDisabled {
+.heroProfileContainer > .right > .patchButtonDisable {
 	width: 150px;
 	height: 50px;
 	font-size: 1.5rem;
@@ -81,50 +106,25 @@
 	cursor: not-allowed;
 	background: lightgrey;
 }
-
-.heroProfileContainer > .right > .powerButton:hover {
+.heroProfileContainer > .right > .patchButton:hover {
 	box-shadow: 0 0 10px -5px #979797;
 	transform: scale(1.01);
 }
-
-.spinningCircle {
-	height: 40px;
-	width: 40px !important;
+.heroProfileContainer > .right > .loader {
+	border: 5px solid #f3f3f3;
+	border-top: 5px solid grey;
 	border-radius: 50%;
-	border: 4px solid rgba(255, 255, 255, 0);
-	border-top-color: 4px solid #7fc4d1;
-	border-right-color: 4px solid #7fc4d1;
-	-webkit-animation: single2 4s infinite linear;
-	animation: single2 4s infinite linear;
+	width: 30px !important;
+	height: 30px;
+	animation: spin 2s linear infinite;
+	align-self: flex-start;
 }
-
-@-webkit-keyframes single2 {
+@keyframes spin {
 	0% {
-		-webkit-transform: rotate(0deg);
 		transform: rotate(0deg);
 	}
-	/* 50% {
-		border-top-color: #1f4f58;
-		border-right-color: #1f4f58;
-	} */
 	100% {
-		-webkit-transform: rotate(720deg);
-		transform: rotate(720deg);
-	}
-}
-
-@keyframes single2 {
-	0% {
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
-	/* 50% {
-		border-top-color: #1f4f58;
-		border-right-color: #1f4f58;
-	} */
-	100% {
-		-webkit-transform: rotate(720deg);
-		transform: rotate(720deg);
+		transform: rotate(360deg);
 	}
 }
 
@@ -139,11 +139,17 @@ media query
 	}
 	.heroProfileContainer > .left,
 	.heroProfileContainer > .right {
-		/* border: 1px solid red; */
 		flex-basis: 98%;
 		box-sizing: border-box;
 	}
-	.heroProfileContainer > .right > .powerButton,
+	.heroProfileContainer > .right {
+		padding: 0 30px;
+	}
+	.heroProfileContainer > .right > .loader {
+		align-self: center;
+	}
+	.heroProfileContainer > .right > .patchButton,
+	.heroProfileContainer > .right > .patchButtonDisable,
 	.heroProfileContainer > .right > div {
 		width: 100%;
 		text-align: center;
@@ -160,6 +166,7 @@ media query
 		margin: 10px 0;
 		justify-content: space-between;
 	}
+	.heroProfileContainer > .left > .powerList > .disableButton,
 	.heroProfileContainer > .left > .powerList > .addButton,
 	.heroProfileContainer > .left > .powerList > .minusButton {
 		width: 30px;
@@ -172,7 +179,7 @@ media query
 	.heroProfileContainer > .right > div {
 		margin-bottom: 10px;
 	}
-	.heroProfileContainer > .right > .powerButton {
+	.heroProfileContainer > .right > .patchButton {
 		font-size: inherit;
 		height: 30px;
 	}

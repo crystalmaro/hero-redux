@@ -2,26 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getHeroes, getProfile, setID } from '../actions/index';
-// import Profile from './Profile';
 import '../../css/list.css';
 
 export class List extends Component {
 	componentDidMount() {
 		this.props.getHeroes();
 		// getHeroes is a function defined in actions
-		// with matching action type, it dispatch the action to the reducer
+		// with matching action type, it dispatches the action to the reducer
 	}
 	render() {
+		// ES6 destructure to increase readability
+		const { setID, remoteHeroes, currentHeroID } = this.props;
 		return (
-			<div className="heroListContainer" onClick={this.props.setID}>
-				{this.props.remoteHeroes.map((x) => (
+			<div className="heroListContainer" onClick={setID}>
+				{remoteHeroes.map((x) => (
 					<Link
 						to={`/heroes/${x.id}`}
-						// to="/test"
 						key={x.id}
 						id={x.id}
 						className="heroCard"
-						style={this.props.currentHeroID == x.id ? { boxShadow: '0 0 20px -5px #fa8b00' } : null}
+						style={currentHeroID == x.id ? { boxShadow: '0 0 20px -5px #fa8b00' } : null}
 					>
 						<div className="heroImage">
 							<img src={x.image} alt="profile" id={x.id} />

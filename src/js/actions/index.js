@@ -1,4 +1,3 @@
-// import { ADD_ARTICLE } from '../constants/action-types';
 import {
 	GET_HEROES_REQUEST,
 	GET_HEROES,
@@ -22,7 +21,7 @@ export const setID = (e) => {
 			type: GET_PROFILE_REQUEST,
 			// id: e,
 		});
-		axios.get(`http://hahow-recruit.herokuapp.com/heroes/${e.target.id}/profile/`).then((response) => {
+		axios.get(`https://hahow-recruit.herokuapp.com/heroes/${e.target.id}/profile/`).then((response) => {
 			dispatch({ type: GET_PROFILE, payload: response.data });
 		});
 	};

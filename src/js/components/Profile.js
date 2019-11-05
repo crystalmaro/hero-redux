@@ -32,23 +32,36 @@ export class Profile extends Component {
 	};
 
 	render() {
+		// ES6 destructure to increase readability
+		const {
+			totalPoints,
+			fetchingHeroes,
+			fetchingProfile,
+			patchingPower,
+			availablePoints,
+			patchPower,
+			currentHeroID,
+			remoteProfile,
+		} = this.props;
 		return (
-			<div
-				className="heroProfileContainer"
-				style={this.props.totalPoints > 0 ? { display: 'flex' } : { display: 'none' }}
-			>
+			<div className="heroProfileContainer" style={totalPoints > 0 ? { display: 'flex' } : { display: 'none' }}>
 				<div className="left">{this.renderProfile()}</div>
 				<div className="right">
-					{/* <div className="spinningCircle">.</div> */}
-					<div>剩餘點數：{this.props.availablePoints}</div>
+					<div
+						className="loader"
+						style={
+							fetchingHeroes || fetchingProfile || patchingPower ? (
+								{ display: 'block' }
+							) : (
+								{ display: 'none' }
+							)
+						}
+					/>
+					<div>剩餘點數：{availablePoints}</div>
 					<button
 						type="button"
-						className={this.props.availablePoints === 0 ? 'powerButton' : 'patchDisabled'}
-						onClick={
-							this.props.availablePoints === 0 ? (
-								() => this.props.patchPower(this.props.currentHeroID, this.props.remoteProfile)
-							) : null
-						}
+						className={availablePoints === 0 ? 'patchButton' : 'patchButtonDisable'}
+						onClick={availablePoints === 0 ? () => patchPower(currentHeroID, remoteProfile) : null}
 					>
 						儲存
 					</button>
@@ -66,6 +79,9 @@ function mapStateToProps(state) {
 		totalPoints: state.totalPoints,
 		availablePoints: state.availablePoints,
 		currentHeroID: state.currentHeroID,
+		fetchingHeroes: state.fetchingHeroes,
+		fetchingProfile: state.fetchingProfile,
+		patchingPower: state.patchingPower,
 	};
 }
 // function mapDispatchToProps(dispatch){
