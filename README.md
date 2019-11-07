@@ -3,6 +3,8 @@
 
 [Hero Demo Page](https://crystalwang-hero.netlify.com)
 
+**Nov 7th, 2019: added a [補充](#補充) section
+
 ## 目錄
 * [頁面需求](#頁面需求)
 * [細部需求](#細部需求)
@@ -12,6 +14,7 @@
     * [程式碼中寫註解的原則](#程式碼中寫註解的原則)
     * [困難以及解決的方法](#困難以及解決的方法)
 * [加分](#加分)
+* [補充](#補充)
 
 ---
 
@@ -194,3 +197,15 @@ border: 1px solid blue;  /*這裡的 border 只是用來 debug 的*/
 - 能按的東西，hover 到都會有相對的使用者回饋
     - scale bigger
     - cursor
+    
+    
+## 補充
+(這是我昨天睡覺想到的東西，但為了公平起見，不再改 code，但還是想表達我意識到的東西
+### Hero 入場 Animation
+- 在桌機上 hero 是從左排到右（hero ID 1 -> 4），但我的 animation 入場順序卻是從右到左（hero ID 1 <- 4）
+- 問題：抓資料會是（hero ID 1 -> 4）這個順序抓，會造成畫面上原本預計應該第一個出場的 hero 4 會變成最後一個出場
+- 解決方法：用 if 去判斷說，當 hero array length = 4 的時候，再開始跑 hero 們的入場動畫
+### URL
+- 雖然頁面需求只有說『並且不因切換連結重新render』，沒有說按 ’上一頁' 的時候要顯示前一個 hero profile 的生命值，但照理說以一個 SPA 為主，這還是應該要到的事情
+- 問題：我現在換網址（heroes/1 -> heroes/2）的機制是直接把 hero ID 透過 React Router 硬塞到 url 裡面，所以按 '上一頁'，網址會是上一個網址沒錯，但 hero profile 就是空的
+- 解決：點擊 hero card 的時候把該 hero ID 帶到網址裡面，然後抓 hero profile 的方式是先去抓 url heroes/ 後面的 param，再用那 param 的數字去抓 hero 生命值
